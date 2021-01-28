@@ -1,2 +1,7 @@
 # vlingo-graphql
-The GraphQL Server running on VLINGO-HTTP.
+
+A GraphQL Server running on VLINGO-HTTP.
+
+# PROPRIETARY AND CONFIDENTIAL
+
+# CLOSED SOURCE ACCESSIBLE BY INVITATION ONLY
