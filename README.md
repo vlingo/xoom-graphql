@@ -25,6 +25,8 @@ public GraphQL graphQL(final String schemaName, final WarbleDataFetcher warbleDa
     // Parse schema
     final TypeDefinitionRegistry typeRegistry = new TypeDefinitionRegistry();
     
+    // SchemaLoader is our component (yet to be implemented) that loads
+    // a GraphQL schema as a String
     final String schema = SchemaLoader.by(schemaName);
     
     typeRegistry.merge(schemaParser.parse(schema));
