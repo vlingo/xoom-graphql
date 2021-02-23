@@ -2,7 +2,8 @@ package io.vlingo.graphql;
 
 import io.vlingo.actors.Stage;
 import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GraphQLRequest;
+import io.vlingo.graphql.model.GqlRequest;
+import io.vlingo.graphql.model.GqlResponse;
 import io.vlingo.http.Response;
 import io.vlingo.http.resource.DynamicResourceHandler;
 import io.vlingo.http.resource.Resource;
@@ -21,9 +22,17 @@ public class GraphQLResource extends DynamicResourceHandler {
         this.processor = processor;
     }
 
-    public Completes<Response> graphQLHandler(final GraphQLRequest request) {
-        return processor.query(request.getQuery())
-                .andThenTo(response -> Completes.withSuccess(Response.of(Ok, headers(of(ContentType, "application/json")), serialized(response))))
+    public Completes<Response> graphQLHandler(final GqlRequest request) {
+        Completes<GqlResponse> response;
+
+        if (request.hasVariables()) {
+            response = processor.query(request.getQuery(), request.getVariables());
+        } else {
+            response = processor.query(request.getQuery());
+        }
+
+        return response
+                .andThenTo(resp -> Completes.withSuccess(Response.of(Ok, headers(of(ContentType, "application/json")), serialized(resp))))
                 .otherwise(noData -> Response.of(Response.Status.InternalServerError));
     }
 
@@ -31,7 +40,7 @@ public class GraphQLResource extends DynamicResourceHandler {
     public Resource<?> routes() {
         return resource("GraphQL Resource",
                 post("/graphql")
-                        .body(GraphQLRequest.class)
+                        .body(GqlRequest.class)
                         .handle(this::graphQLHandler));
     }
 }

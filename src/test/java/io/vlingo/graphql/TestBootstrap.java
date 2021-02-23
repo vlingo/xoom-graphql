@@ -4,8 +4,8 @@ import io.vlingo.actors.Definition;
 import io.vlingo.actors.Stage;
 import io.vlingo.actors.World;
 import io.vlingo.graphql.fetchers.BookByIdFetcher;
-import io.vlingo.graphql.model.QueryPart;
-import io.vlingo.graphql.model.TypePart;
+import io.vlingo.graphql.model.GqlQuery;
+import io.vlingo.graphql.model.GqlType;
 import io.vlingo.http.resource.Configuration;
 import io.vlingo.http.resource.Resources;
 import io.vlingo.http.resource.Server;
@@ -42,11 +42,11 @@ public class TestBootstrap {
     private GraphQLProcessor newProcessor(final Stage stage) {
         final GraphQLProcessorActor.GraphQLProcessorInstantiator instantiator = new GraphQLProcessorActor.GraphQLProcessorInstantiator(
                 "/schema.graphqls",
-                QueryPart.listOf(
-                        QueryPart.from("bookById", new BookByIdFetcher())),
-                TypePart.listOf(
-                        TypePart.from("Book", new ArrayList<>()),
-                        TypePart.from("Author", new ArrayList<>())));
+                GqlQuery.listOf(
+                        GqlQuery.from("bookById", new BookByIdFetcher())),
+                GqlType.listOf(
+                        GqlType.from("Book", new ArrayList<>()),
+                        GqlType.from("Author", new ArrayList<>())));
 
         final Definition definition = Definition.has(GraphQLProcessorActor.class, instantiator);
         final GraphQLProcessor processor = stage.actorFor(GraphQLProcessor.class, definition);

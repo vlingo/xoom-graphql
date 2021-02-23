@@ -1,7 +1,7 @@
 package io.vlingo.graphql;
 
 import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GraphQLResponse;
+import io.vlingo.graphql.model.GqlResponse;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ public interface GraphQLProcessor {
      * @param query Query operation to execute
      * @return
      */
-    Completes<GraphQLResponse> query(String query);
+    Completes<GqlResponse> query(String query);
 
     /**
      * Executes GraphQL query operation.
@@ -24,5 +24,5 @@ public interface GraphQLProcessor {
      * @param variables Variables for query operation
      * @return
      */
-    Completes<GraphQLResponse> query(String query, Map<String, Object> variables);
+    Completes<GqlResponse> query(String query, Map<String, Object> variables);
 }

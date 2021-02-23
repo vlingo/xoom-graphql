@@ -1,3 +1,4 @@
+# The Root Query for the application
 type Query {
   bookById(id: ID): Book 
 }

@@ -7,11 +7,11 @@ import java.util.List;
 /**
  * GraphQL response model.
  */
-public class GraphQLResponse {
+public class GqlResponse {
     private final Object data;
     private final List<GraphQLError> errors;
 
-    public GraphQLResponse(Object data, List<GraphQLError> errors) {
+    public GqlResponse(Object data, List<GraphQLError> errors) {
         this.data = data;
         this.errors = errors;
     }

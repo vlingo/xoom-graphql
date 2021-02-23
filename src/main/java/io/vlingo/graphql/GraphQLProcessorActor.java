@@ -9,9 +9,9 @@ import graphql.schema.idl.*;
 import io.vlingo.actors.Actor;
 import io.vlingo.actors.ActorInstantiator;
 import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GraphQLResponse;
-import io.vlingo.graphql.model.QueryPart;
-import io.vlingo.graphql.model.TypePart;
+import io.vlingo.graphql.model.GqlResponse;
+import io.vlingo.graphql.model.GqlQuery;
+import io.vlingo.graphql.model.GqlType;
 
 import java.io.InputStreamReader;
 import java.util.List;
@@ -25,7 +25,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
     }
 
     @Override
-    public Completes<GraphQLResponse> query(String query) {
+    public Completes<GqlResponse> query(String query) {
         try {
             ExecutionInput executionInput = ExecutionInput.newExecutionInput()
                     .query(query)
@@ -36,7 +36,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
             Object data = executionResult.getData();
             List<GraphQLError> errors = executionResult.getErrors();
 
-            return completes().with(new GraphQLResponse(data, errors));
+            return completes().with(new GqlResponse(data, errors));
         } catch (Exception e) {
             logger().error("Failed to execute query operation.", e);
             return Completes.withFailure();
@@ -44,7 +44,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
     }
 
     @Override
-    public Completes<GraphQLResponse> query(String query, Map<String, Object> variables) {
+    public Completes<GqlResponse> query(String query, Map<String, Object> variables) {
         try {
             ExecutionInput executionInput = ExecutionInput.newExecutionInput()
                     .query(query)
@@ -56,7 +56,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
             Object data = executionResult.getData();
             List<GraphQLError> errors = executionResult.getErrors();
 
-            return completes().with(new GraphQLResponse(data, errors));
+            return completes().with(new GqlResponse(data, errors));
         } catch (Exception e) {
             logger().error("Failed to execute query operation.", e);
             return Completes.withFailure();
@@ -69,7 +69,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
 
         private final GraphQL graphQL;
 
-        public GraphQLProcessorInstantiator(final String schemaFile, final List<QueryPart> queries, final List<TypePart> types) {
+        public GraphQLProcessorInstantiator(final String schemaFile, final List<GqlQuery> queries, final List<GqlType> types) {
             SchemaParser schemaParser = new SchemaParser();
             TypeDefinitionRegistry typeRegistry = schemaParser.parse(
                     new InputStreamReader(GraphQLProcessorActor.class.getResourceAsStream(schemaFile)));
@@ -94,20 +94,20 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
             return GraphQLProcessorActor.class;
         }
 
-        private static RuntimeWiring.Builder buildTypesWiring(final RuntimeWiring.Builder builder, final List<TypePart> types) {
+        private static RuntimeWiring.Builder buildTypesWiring(final RuntimeWiring.Builder builder, final List<GqlType> types) {
             RuntimeWiring.Builder resultBuilder = builder;
 
-            for (TypePart type : types) {
+            for (GqlType type : types) {
                 resultBuilder = resultBuilder.type(type.getTypeName(), tempBuilder -> buildWiring(tempBuilder, type.getFieldQueries()));
             }
 
             return resultBuilder;
         }
 
-        private static TypeRuntimeWiring.Builder buildWiring(final TypeRuntimeWiring.Builder builder, final List<QueryPart> queries) {
+        private static TypeRuntimeWiring.Builder buildWiring(final TypeRuntimeWiring.Builder builder, final List<GqlQuery> queries) {
             TypeRuntimeWiring.Builder resultBuilder = builder;
 
-            for (QueryPart query : queries) {
+            for (GqlQuery query : queries) {
                 resultBuilder = resultBuilder.dataFetcher(query.getFieldName(), query.getDataFetcher());
             }
 

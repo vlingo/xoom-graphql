@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * GraphQL request model.
  */
-public class GraphQLRequest {
+public class GqlRequest {
     private String query;
     private Map<String, Object> variables = new HashMap<>();
     private String operationName;
@@ -25,6 +25,10 @@ public class GraphQLRequest {
 
     public void setVariables(Map<String, Object> variables) {
         this.variables = variables;
+    }
+
+    public boolean hasVariables() {
+        return variables.size() > 0;
     }
 
     public String getOperationName() {

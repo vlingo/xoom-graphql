@@ -3,13 +3,13 @@ package io.vlingo.graphql.model;
 import graphql.schema.DataFetcher;
 
 /**
- *
+ * GraphQL abstract query.
  */
-public class AbstractQueryPart {
+public class GqlAbstractQuery {
     private final String fieldName;
     private final DataFetcher<?> dataFetcher;
 
-    protected AbstractQueryPart(String fieldName, DataFetcher<?> dataFetcher) {
+    protected GqlAbstractQuery(String fieldName, DataFetcher<?> dataFetcher) {
         this.fieldName = fieldName;
         this.dataFetcher = dataFetcher;
     }
