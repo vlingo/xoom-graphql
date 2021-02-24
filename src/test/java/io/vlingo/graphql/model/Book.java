@@ -28,4 +28,12 @@ public class Book {
     public Author getAuthor() {
         return author;
     }
+
+    public Book updateWith(Book from) {
+        this.name = from.name;
+        this.pageCount = from.pageCount;
+        this.author = from.author;
+
+        return this;
+    }
 }

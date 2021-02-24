@@ -3,6 +3,11 @@ type Query {
   bookById(id: ID): Book 
 }
 
+# The Root Mutation for the application
+type Mutation {
+  upsertBook(id: ID!, name: String!, pageCount: Int, authorId: ID!): Book
+}
+
 type Book {
   id: ID
   name: String

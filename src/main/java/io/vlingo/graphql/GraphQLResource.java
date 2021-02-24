@@ -3,7 +3,6 @@ package io.vlingo.graphql;
 import io.vlingo.actors.Stage;
 import io.vlingo.common.Completes;
 import io.vlingo.graphql.model.GqlRequest;
-import io.vlingo.graphql.model.GqlResponse;
 import io.vlingo.http.Response;
 import io.vlingo.http.resource.DynamicResourceHandler;
 import io.vlingo.http.resource.Resource;
@@ -23,15 +22,7 @@ public class GraphQLResource extends DynamicResourceHandler {
     }
 
     public Completes<Response> graphQLHandler(final GqlRequest request) {
-        Completes<GqlResponse> response;
-
-        if (request.hasVariables()) {
-            response = processor.query(request.getQuery(), request.getVariables());
-        } else {
-            response = processor.query(request.getQuery());
-        }
-
-        return response
+        return processor.query(request.getQuery(), request.getVariables())
                 .andThenTo(resp -> Completes.withSuccess(Response.of(Ok, headers(of(ContentType, "application/json")), serialized(resp))))
                 .otherwise(noData -> Response.of(Response.Status.InternalServerError));
     }

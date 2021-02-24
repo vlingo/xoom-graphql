@@ -10,15 +10,7 @@ import java.util.Map;
  */
 public interface GraphQLProcessor {
     /**
-     * Executes GraphQL query operation.
-     *
-     * @param query Query operation to execute
-     * @return
-     */
-    Completes<GqlResponse> query(String query);
-
-    /**
-     * Executes GraphQL query operation.
+     * Executes GraphQL query (i.e Query, Mutation, ...) operation.
      *
      * @param query Query operation to execute
      * @param variables Variables for query operation
