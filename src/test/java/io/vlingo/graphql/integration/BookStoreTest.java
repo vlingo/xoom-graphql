@@ -23,7 +23,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * Book store integration test. It is a show case of a GraphQL client.
  */
-public class BookStoreIT {
+public class BookStoreTest {
     private static final String host = "localhost";
     private static final int port = 18085;
 
@@ -32,7 +32,7 @@ public class BookStoreIT {
     private static Client client;
 
     @Test
-    public void queryExistingBookTest() throws Exception {
+    public void queryExistingBookTest() {
         final BookByIdQueryRequest bookRequest = BookByIdQueryRequest.builder()
                 .setId("book-1")
                 .build();
