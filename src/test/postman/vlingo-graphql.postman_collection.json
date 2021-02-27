@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "a60b167f-b94c-4b81-865b-d3f9a955b39d",
+		"name": "vlingo-graphql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "query book-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\n    bookById(id: \"book-1\") {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:18085/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18085",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query book-1 variable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query bookById($id: ID!) {\n    bookById(id: $id) {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
+						"variables": "{\n    \"id\": \"book-1\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:18085/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18085",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query book-1 variable 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query ($id: ID!) {\n    bookById(id: $id) {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
+						"variables": "{\n    \"id\": \"book-1\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:18085/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18085",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mutation upsertBook-4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\n    upsertBook(id: \"book-4\", name: \"The Mysterious Stranger\", pageCount: 200, authorId: \"author-2\") {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:18085/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "18085",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
