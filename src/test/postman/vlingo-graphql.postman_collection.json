@@ -84,14 +84,14 @@
 			"response": []
 		},
 		{
-			"name": "mutation upsertBook-4",
+			"name": "mutation upsertBook-8",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "graphql",
 					"graphql": {
-						"query": "mutation {\n    upsertBook(id: \"book-4\", name: \"The Mysterious Stranger\", pageCount: 200, authorId: \"author-2\") {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
+						"query": "mutation {\n    upsertBook(id: \"book-8\", name: \"The Mysterious Stranger\", pageCount: 200, authorId: \"author-2\") {\n        id\n        name\n        pageCount\n        author {\n            firstName\n            lastName\n        }\n    }\n}",
 						"variables": ""
 					}
 				},
