@@ -38,7 +38,7 @@ public class TestBootstrap {
         }));
     }
 
-    private GraphQLProcessor newProcessor(final Stage stage) {
+    public static GraphQLProcessor newProcessor(final Stage stage) {
         final GraphQLProcessorActor.GraphQLProcessorInstantiator instantiator = new GraphQLProcessorActor.GraphQLProcessorInstantiator(
                 "schema.graphqls", Arrays.asList(new BookQuery(), new BookMutation()));
 
