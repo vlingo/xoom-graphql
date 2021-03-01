@@ -7,6 +7,9 @@ import io.vlingo.http.Response;
 import io.vlingo.http.resource.DynamicResourceHandler;
 import io.vlingo.http.resource.Resource;
 
+import java.util.HashMap;
+import java.util.Optional;
+
 import static io.vlingo.common.serialization.JsonSerialization.serialized;
 import static io.vlingo.http.Response.Status.Ok;
 import static io.vlingo.http.ResponseHeader.*;
@@ -22,7 +25,7 @@ public class GraphQLResource extends DynamicResourceHandler {
     }
 
     public Completes<Response> graphQLHandler(final GqlRequest request) {
-        return processor.query(request.getQuery(), request.getVariables())
+        return processor.query(request.query, Optional.ofNullable(request.variables).orElse(new HashMap<>()))
                 .andThenTo(resp -> Completes.withSuccess(Response.of(Ok, headers(of(ContentType, "application/json")), serialized(resp))))
                 .otherwise(noData -> Response.of(Response.Status.InternalServerError));
     }
