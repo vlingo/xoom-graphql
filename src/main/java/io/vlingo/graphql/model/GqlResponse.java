@@ -8,19 +8,11 @@ import java.util.List;
  * GraphQL response model.
  */
 public class GqlResponse {
-    private final Object data;
-    private final List<GraphQLError> errors;
+    public final Object data;
+    public final List<GraphQLError> errors;
 
     public GqlResponse(Object data, List<GraphQLError> errors) {
         this.data = data;
         this.errors = errors;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public List<GraphQLError> getErrors() {
-        return errors;
     }
 }

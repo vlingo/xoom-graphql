@@ -37,7 +37,7 @@ public class GraphQLTest {
                 "}";
 
         final GqlResponse queryResponse = processor.query(query, new HashMap<>()).await();
-        Assertions.assertEquals(0, queryResponse.getErrors().size());
+        Assertions.assertEquals(0, queryResponse.errors.size());
 
         final String mutation = "mutation {\n" +
                 "    upsertBook(id: \"book-4\", name: \"The Mysterious Stranger\", pageCount: 176, authorId: \"author-2\") {\n" +
@@ -51,7 +51,7 @@ public class GraphQLTest {
                 "    }\n" +
                 "}";
         final GqlResponse mutationResponse = processor.query(mutation, new HashMap<>()).await();
-        Assertions.assertEquals(0, mutationResponse.getErrors().size());
+        Assertions.assertEquals(0, mutationResponse.errors.size());
     }
 
     @BeforeAll
