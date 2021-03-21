@@ -1,6 +1,6 @@
 # vlingo-graphql
 
-A GraphQL Server running on VLINGO-HTTP.
+The VLINGO XOOM platform SDK GraphQL Server running on XOOM HTTP.
 
 # PROPRIETARY AND CONFIDENTIAL
 
@@ -44,3 +44,7 @@ public GraphQL graphQL(final String schemaName, final WarbleDataFetcher warbleDa
     return GraphQL.newGraphQL(graphQLSchema).build();
 }
 ```
+
+### Important
+If using snapshot builds [follow these instructions](https://github.com/vlingo/vlingo-platform#snapshots-repository) or you will experience failures.
+
