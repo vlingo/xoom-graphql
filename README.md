@@ -1,5 +1,7 @@
 # xoom-graphql
 
+[![Javadocs](http://javadoc.io/badge/io.vlingo.xoom/xoom-graphql.svg?color=brightgreen)](http://javadoc.io/doc/io.vlingo.xoom/xoom-graphql) [![Build](https://github.com/vlingo/xoom-graphql/workflows/Build/badge.svg)](https://github.com/vlingo/xoom-graphql/actions?query=workflow%3ABuild) [![Download](https://img.shields.io/maven-central/v/io.vlingo.xoom/xoom-graphql?label=maven)](https://search.maven.org/artifact/io.vlingo.xoom/xoom-graphql) [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/vlingo-platform-java/http)
+
 The VLINGO XOOM platform SDK GraphQL Server running on XOOM HTTP.
 
 # PROPRIETARY AND CONFIDENTIAL
