@@ -1,20 +1,20 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
-import io.vlingo.actors.Stage;
-import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GqlRequest;
-import io.vlingo.http.Response;
-import io.vlingo.http.resource.DynamicResourceHandler;
-import io.vlingo.http.resource.Resource;
+import io.vlingo.xoom.actors.Stage;
+import io.vlingo.xoom.common.Completes;
+import io.vlingo.xoom.graphql.model.GqlRequest;
+import io.vlingo.xoom.http.Response;
+import io.vlingo.xoom.http.resource.DynamicResourceHandler;
+import io.vlingo.xoom.http.resource.Resource;
 
 import java.util.HashMap;
 import java.util.Optional;
 
-import static io.vlingo.common.serialization.JsonSerialization.serialized;
-import static io.vlingo.http.Response.Status.Ok;
-import static io.vlingo.http.ResponseHeader.*;
-import static io.vlingo.http.resource.ResourceBuilder.post;
-import static io.vlingo.http.resource.ResourceBuilder.resource;
+import static io.vlingo.xoom.common.serialization.JsonSerialization.serialized;
+import static io.vlingo.xoom.http.Response.Status.Ok;
+import static io.vlingo.xoom.http.ResponseHeader.*;
+import static io.vlingo.xoom.http.resource.ResourceBuilder.post;
+import static io.vlingo.xoom.http.resource.ResourceBuilder.resource;
 
 public class GraphQLResource extends DynamicResourceHandler {
     private final GraphQLProcessor processor;

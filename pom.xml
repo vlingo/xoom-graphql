@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.vlingo</groupId>
-  <artifactId>vlingo-graphql</artifactId>
-  <version>1.5.1-SNAPSHOT</version>
-  <name>vlingo-graphql</name>
-  <description>vlingo GraphQL</description>
-  <url>https://github.com/vlingo/vlingo-graphql</url>
+  <groupId>io.vlingo.xoom</groupId>
+  <artifactId>xoom-graphql</artifactId>
+  <version>1.6.1-SNAPSHOT</version>
+  <name>xoom-graphql</name>
+  <description>Xoom GraphQL</description>
+  <url>https://github.com/vlingo/xoom-graphql</url>
 
   <developers>
     <developer>
@@ -26,9 +26,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.vlingo</groupId>
-      <artifactId>vlingo-http</artifactId>
-      <version>1.5.1-SNAPSHOT</version>
+      <groupId>io.vlingo.xoom</groupId>
+      <artifactId>xoom-http</artifactId>
+      <version>1.6.1-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -134,7 +134,7 @@
                 <includePattern>schema\.graphqls</includePattern>
               </graphqlSchemas-->
               <outputDir>${project.build.directory}/generated-test-sources/</outputDir>
-              <modelPackageName>io.vlingo.graphql.client.model</modelPackageName>
+              <modelPackageName>io.vlingo.xoom.graphql.client.model</modelPackageName>
               <customTypesMapping>
                 <DateTime>java.util.Date</DateTime>
               </customTypesMapping>
@@ -170,19 +170,105 @@
 
   <repositories>
     <repository>
-      <id>jcenter</id>
-      <url>https://jcenter.bintray.com/</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-
-    <repository>
-      <id>github</id>
-      <url>https://maven.pkg.github.com/vlingo/vlingo-platform</url>
-      <releases><enabled>true</enabled></releases>
+      <id>ossrh-snapshots</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+      <releases><enabled>false</enabled></releases>
       <snapshots><enabled>true</enabled></snapshots>
     </repository>
   </repositories>
+
+  <profiles>
+    <profile>
+      <id>sign-artifacts</id>
+      <activation>
+        <property>
+          <name>signArtifacts</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>sonatype</id>
+      <activation>
+        <property>
+          <name>useSonatype</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>central-repository-ossrh</id>
+          <name>Snapshots Repository OSSRH</name>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.8</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>central-repository-ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>github</id>
+      <activation>
+        <property>
+          <name>useGitHubPackages</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <distributionManagement>
+        <repository>
+          <id>github</id>
+          <name>GitHub Packages</name>
+          <url>https://maven.pkg.github.com/vlingo/xoom-platform</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+    <profile>
+      <!-- We only need GitHub packages during releases as syncing to central is too slow. -->
+      <id>github-releases</id>
+      <repositories>
+        <repository>
+          <id>github</id>
+          <name>GitHub Packages</name>
+          <url>https://maven.pkg.github.com/vlingo/xoom-platform</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
 
 </project>

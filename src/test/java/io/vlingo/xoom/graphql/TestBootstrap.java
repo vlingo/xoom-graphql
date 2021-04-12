@@ -1,18 +1,18 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
-import io.vlingo.actors.Definition;
-import io.vlingo.actors.Stage;
-import io.vlingo.actors.World;
-import io.vlingo.graphql.resolvers.BookMutation;
-import io.vlingo.graphql.resolvers.BookQuery;
-import io.vlingo.http.resource.Configuration;
-import io.vlingo.http.resource.Resources;
-import io.vlingo.http.resource.Server;
+import io.vlingo.xoom.actors.Definition;
+import io.vlingo.xoom.actors.Stage;
+import io.vlingo.xoom.actors.World;
+import io.vlingo.xoom.graphql.resolvers.BookMutation;
+import io.vlingo.xoom.graphql.resolvers.BookQuery;
+import io.vlingo.xoom.http.resource.Configuration;
+import io.vlingo.xoom.http.resource.Resources;
+import io.vlingo.xoom.http.resource.Server;
 
 import java.util.Arrays;
 
 /**
- * Convenient test bootstrap to run vlingo-graphql utilizing test resources.
+ * Convenient test bootstrap to run xoom-graphql utilizing test resources.
  */
 public class TestBootstrap {
     private static TestBootstrap instance = null;
@@ -21,7 +21,7 @@ public class TestBootstrap {
     private final Server server;
 
     public TestBootstrap(final int port) {
-        world = World.startWithDefaults("test-vlingo-graphql");
+        world = World.startWithDefaults("test-xoom-graphql");
         final GraphQLProcessor processor = newProcessor(world.stage());
         final GraphQLResource graphQLResource = new GraphQLResource(world.stage(), processor);
         final Resources allResources = Resources.are(graphQLResource.routes());
@@ -32,7 +32,7 @@ public class TestBootstrap {
             if (instance != null) {
                 instance.server.stop();
                 System.out.println("=========================");
-                System.out.println("Stopping test-vlingo-graphql");
+                System.out.println("Stopping test-xoom-graphql");
                 System.out.println("=========================");
             }
         }));
@@ -50,7 +50,7 @@ public class TestBootstrap {
 
     public static void main(String[] args) {
         System.out.println("=========================");
-        System.out.println("Starting: test-vlingo-graphql");
+        System.out.println("Starting: test-xoom-graphql");
         System.out.println("=========================");
 
         instance = new TestBootstrap(18085);

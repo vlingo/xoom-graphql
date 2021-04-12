@@ -1,20 +1,20 @@
-package io.vlingo.graphql.integration;
+package io.vlingo.xoom.graphql.integration;
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
-import io.vlingo.actors.World;
-import io.vlingo.actors.testkit.AccessSafely;
-import io.vlingo.common.serialization.JsonSerialization;
-import io.vlingo.graphql.GraphQLProcessor;
-import io.vlingo.graphql.GraphQLResource;
-import io.vlingo.graphql.TestBootstrap;
-import io.vlingo.graphql.client.model.*;
-import io.vlingo.http.*;
-import io.vlingo.http.resource.*;
-import io.vlingo.wire.node.Address;
-import io.vlingo.wire.node.AddressType;
-import io.vlingo.wire.node.Host;
+import io.vlingo.xoom.actors.World;
+import io.vlingo.xoom.actors.testkit.AccessSafely;
+import io.vlingo.xoom.common.serialization.JsonSerialization;
+import io.vlingo.xoom.graphql.GraphQLProcessor;
+import io.vlingo.xoom.graphql.GraphQLResource;
+import io.vlingo.xoom.graphql.TestBootstrap;
+import io.vlingo.xoom.graphql.client.model.*;
+import io.vlingo.xoom.http.*;
+import io.vlingo.xoom.http.resource.*;
+import io.vlingo.xoom.wire.node.Address;
+import io.vlingo.xoom.wire.node.AddressType;
+import io.vlingo.xoom.wire.node.Host;
 import org.junit.jupiter.api.*;
 
 import java.net.URI;
@@ -122,7 +122,7 @@ public class BookStoreTest {
 
     @BeforeAll
     public static void setUp() throws Exception {
-        world = World.startWithDefaults("vlingo-graphql-test");
+        world = World.startWithDefaults("xoom-graphql-test");
 
         GraphQLProcessor processor = TestBootstrap.newProcessor(world.stage());
         GraphQLResource graphQLResource = new GraphQLResource(world.stage(), processor);

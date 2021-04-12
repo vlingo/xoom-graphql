@@ -1,8 +1,8 @@
-package io.vlingo.graphql.resolvers;
+package io.vlingo.xoom.graphql.resolvers;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
-import io.vlingo.graphql.Store;
-import io.vlingo.graphql.model.Book;
+import io.vlingo.xoom.graphql.Store;
+import io.vlingo.xoom.graphql.model.Book;
 
 public class BookMutation implements GraphQLMutationResolver {
     public Book upsertBook(final String id, final String name, final int pageCount, final String authorId) {

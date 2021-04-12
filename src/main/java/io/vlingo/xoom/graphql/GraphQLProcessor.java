@@ -1,7 +1,7 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
-import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GqlResponse;
+import io.vlingo.xoom.common.Completes;
+import io.vlingo.xoom.graphql.model.GqlResponse;
 
 import java.util.Map;
 

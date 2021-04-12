@@ -1,10 +1,10 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
-import io.vlingo.actors.Definition;
-import io.vlingo.actors.World;
-import io.vlingo.graphql.model.GqlResponse;
-import io.vlingo.graphql.resolvers.BookMutation;
-import io.vlingo.graphql.resolvers.BookQuery;
+import io.vlingo.xoom.actors.Definition;
+import io.vlingo.xoom.actors.World;
+import io.vlingo.xoom.graphql.model.GqlResponse;
+import io.vlingo.xoom.graphql.resolvers.BookMutation;
+import io.vlingo.xoom.graphql.resolvers.BookQuery;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -56,7 +56,7 @@ public class GraphQLTest {
 
     @BeforeAll
     public static void setUp() {
-        world = World.startWithDefaults("vlingo-graphql-test");
+        world = World.startWithDefaults("xoom-graphql-test");
     }
 
     @AfterAll

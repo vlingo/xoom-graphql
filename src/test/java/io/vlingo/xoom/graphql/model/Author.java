@@ -1,4 +1,4 @@
-package io.vlingo.graphql.model;
+package io.vlingo.xoom.graphql.model;
 
 public class Author {
     private String id;

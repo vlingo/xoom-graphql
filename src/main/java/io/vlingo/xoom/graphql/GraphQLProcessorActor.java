@@ -1,4 +1,4 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
@@ -7,10 +7,10 @@ import graphql.GraphQLError;
 import graphql.kickstart.tools.GraphQLResolver;
 import graphql.kickstart.tools.SchemaParser;
 import graphql.schema.GraphQLSchema;
-import io.vlingo.actors.Actor;
-import io.vlingo.actors.ActorInstantiator;
-import io.vlingo.common.Completes;
-import io.vlingo.graphql.model.GqlResponse;
+import io.vlingo.xoom.actors.Actor;
+import io.vlingo.xoom.actors.ActorInstantiator;
+import io.vlingo.xoom.common.Completes;
+import io.vlingo.xoom.graphql.model.GqlResponse;
 
 import java.util.List;
 import java.util.Map;

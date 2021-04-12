@@ -1,7 +1,7 @@
-package io.vlingo.graphql;
+package io.vlingo.xoom.graphql;
 
-import io.vlingo.graphql.model.Author;
-import io.vlingo.graphql.model.Book;
+import io.vlingo.xoom.graphql.model.Author;
+import io.vlingo.xoom.graphql.model.Book;
 
 import java.util.ArrayList;
 import java.util.Arrays;

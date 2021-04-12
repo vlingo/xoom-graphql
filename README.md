@@ -1,4 +1,4 @@
-# vlingo-graphql
+# xoom-graphql
 
 The VLINGO XOOM platform SDK GraphQL Server running on XOOM HTTP.
 
@@ -46,5 +46,5 @@ public GraphQL graphQL(final String schemaName, final WarbleDataFetcher warbleDa
 ```
 
 ### Important
-If using snapshot builds [follow these instructions](https://github.com/vlingo/vlingo-platform#snapshots-repository) or you will experience failures.
+If using snapshot builds [follow these instructions](https://github.com/vlingo/xoom-platform#snapshots-repository) or you will experience failures.
 

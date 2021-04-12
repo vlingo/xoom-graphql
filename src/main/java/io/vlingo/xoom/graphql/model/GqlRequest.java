@@ -1,4 +1,4 @@
-package io.vlingo.graphql.model;
+package io.vlingo.xoom.graphql.model;
 
 import java.util.HashMap;
 import java.util.Map;
