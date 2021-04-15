@@ -1,17 +1,25 @@
+// Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
 package io.vlingo.xoom.graphql;
+
+import java.util.Arrays;
+import java.util.HashMap;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import io.vlingo.xoom.actors.Definition;
 import io.vlingo.xoom.actors.World;
 import io.vlingo.xoom.graphql.model.GqlResponse;
 import io.vlingo.xoom.graphql.resolvers.BookMutation;
 import io.vlingo.xoom.graphql.resolvers.BookQuery;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class GraphQLTest {
     private static World world;

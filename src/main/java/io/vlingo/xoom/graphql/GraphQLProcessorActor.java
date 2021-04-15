@@ -1,4 +1,14 @@
+// Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
 package io.vlingo.xoom.graphql;
+
+import java.util.List;
+import java.util.Map;
 
 import graphql.ExecutionInput;
 import graphql.ExecutionResult;
@@ -11,9 +21,6 @@ import io.vlingo.xoom.actors.Actor;
 import io.vlingo.xoom.actors.ActorInstantiator;
 import io.vlingo.xoom.common.Completes;
 import io.vlingo.xoom.graphql.model.GqlResponse;
-
-import java.util.List;
-import java.util.Map;
 
 public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
     private final GraphQLSchema graphQLSchema;

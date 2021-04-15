@@ -1,8 +1,24 @@
+// Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
 package io.vlingo.xoom.graphql.integration;
+
+import java.net.URI;
+import java.util.concurrent.atomic.AtomicReference;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLOperationRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResponseProjection;
+
 import io.vlingo.xoom.actors.World;
 import io.vlingo.xoom.actors.testkit.AccessSafely;
 import io.vlingo.xoom.common.serialization.JsonSerialization;
@@ -10,15 +26,19 @@ import io.vlingo.xoom.graphql.GraphQLProcessor;
 import io.vlingo.xoom.graphql.GraphQLResource;
 import io.vlingo.xoom.graphql.TestBootstrap;
 import io.vlingo.xoom.graphql.client.model.*;
-import io.vlingo.xoom.http.*;
-import io.vlingo.xoom.http.resource.*;
+import io.vlingo.xoom.http.Body;
+import io.vlingo.xoom.http.Method;
+import io.vlingo.xoom.http.Request;
+import io.vlingo.xoom.http.RequestHeader;
+import io.vlingo.xoom.http.Response;
+import io.vlingo.xoom.http.resource.Client;
+import io.vlingo.xoom.http.resource.Configuration;
+import io.vlingo.xoom.http.resource.Resources;
+import io.vlingo.xoom.http.resource.ResponseConsumer;
+import io.vlingo.xoom.http.resource.Server;
 import io.vlingo.xoom.wire.node.Address;
 import io.vlingo.xoom.wire.node.AddressType;
 import io.vlingo.xoom.wire.node.Host;
-import org.junit.jupiter.api.*;
-
-import java.net.URI;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Book store integration test. It is a show case of a GraphQL client.
