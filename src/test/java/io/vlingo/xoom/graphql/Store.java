@@ -1,11 +1,18 @@
-package io.vlingo.xoom.graphql;
+// Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
 
-import io.vlingo.xoom.graphql.model.Author;
-import io.vlingo.xoom.graphql.model.Book;
+package io.vlingo.xoom.graphql;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import io.vlingo.xoom.graphql.model.Author;
+import io.vlingo.xoom.graphql.model.Book;
 
 public final class Store {
     public static final List<Author> authors = new ArrayList<>(Arrays.asList(

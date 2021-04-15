@@ -1,4 +1,13 @@
+// Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+//
+// This Source Code Form is subject to the terms of the
+// Mozilla Public License, v. 2.0. If a copy of the MPL
+// was not distributed with this file, You can obtain
+// one at https://mozilla.org/MPL/2.0/.
+
 package io.vlingo.xoom.graphql;
+
+import java.util.Arrays;
 
 import io.vlingo.xoom.actors.Definition;
 import io.vlingo.xoom.actors.Stage;
@@ -8,8 +17,6 @@ import io.vlingo.xoom.graphql.resolvers.BookQuery;
 import io.vlingo.xoom.http.resource.Configuration;
 import io.vlingo.xoom.http.resource.Resources;
 import io.vlingo.xoom.http.resource.Server;
-
-import java.util.Arrays;
 
 /**
  * Convenient test bootstrap to run xoom-graphql utilizing test resources.

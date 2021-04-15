@@ -4,10 +4,6 @@
 
 The VLINGO XOOM platform SDK GraphQL Server running on XOOM HTTP.
 
-# PROPRIETARY AND CONFIDENTIAL
-
-# CLOSED SOURCE ACCESSIBLE BY INVITATION ONLY
-
 # References
 
 https://graphql.org/
@@ -50,3 +46,12 @@ public GraphQL graphQL(final String schemaName, final WarbleDataFetcher warbleDa
 ### Important
 If using snapshot builds [follow these instructions](https://github.com/vlingo/xoom-platform#snapshots-repository) or you will experience failures.
 
+
+License (See LICENSE file for full license)
+-------------------------------------------
+Copyright © 2012-2021 VLINGO LABS. All rights reserved.
+
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0. If a copy of the MPL
+was not distributed with this file, You can obtain
+one at https://mozilla.org/MPL/2.0/.
