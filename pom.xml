@@ -8,6 +8,12 @@
   <description>Xoom GraphQL</description>
   <url>https://github.com/vlingo/xoom-graphql</url>
 
+  <licenses>
+    <license>
+      <name>Mozilla Public License 2.0</name>
+      <url>https://mozilla.org/MPL/2.0/</url>
+    </license>
+  </licenses>
   <developers>
     <developer>
       <id>vlingo</id>
@@ -17,6 +23,11 @@
       <organizationUrl>https://vlingo.io/contributors/</organizationUrl>
     </developer>
   </developers>
+  <scm>
+    <connection>scm:git:git://github.com/vlingo/xoom-graphql.git</connection>
+    <developerConnection>scm:git:ssh://github.com/vlingo/xoom-graphql.git</developerConnection>
+    <url>http://github.com/vlingo/xoom-graphql/tree/master</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
