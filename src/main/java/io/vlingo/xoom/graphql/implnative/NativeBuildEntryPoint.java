@@ -11,7 +11,7 @@ import org.graalvm.nativeimage.c.type.CTypeConversion;
 
 import java.util.Collections;
 
-public final class NativeImpl {
+public final class NativeBuildEntryPoint {
   @CEntryPoint(name = "Java_io_vlingo_xoom_graphqlnative_Native_start")
   public static int start(@CEntryPoint.IsolateThreadContext long isolateId, CCharPointer name) {
     final String nameString = CTypeConversion.toJavaString(name);
