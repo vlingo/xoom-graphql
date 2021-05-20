@@ -1,4 +1,4 @@
-package io.vlingo.xoom.graphql.nativebuild;
+package nativebuild;
 
 import io.vlingo.xoom.actors.Definition;
 import io.vlingo.xoom.actors.World;
