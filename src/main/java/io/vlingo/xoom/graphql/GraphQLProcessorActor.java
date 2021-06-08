@@ -52,6 +52,7 @@ public class GraphQLProcessorActor extends Actor implements GraphQLProcessor {
     }
 
     public static class GraphQLProcessorInstantiator implements ActorInstantiator<GraphQLProcessorActor> {
+        private static final long serialVersionUID = 1L;
 
         private final GraphQLSchema graphQLSchema;
 
