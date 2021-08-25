@@ -3,7 +3,7 @@
 
   <groupId>io.vlingo.xoom</groupId>
   <artifactId>xoom-graphql</artifactId>
-  <version>1.8.5-SNAPSHOT</version>
+  <version>1.8.5</version>
   <name>xoom-graphql</name>
   <description>Xoom GraphQL</description>
   <url>https://github.com/vlingo/xoom-graphql</url>
@@ -40,7 +40,7 @@
     <dependency>
       <groupId>io.vlingo.xoom</groupId>
       <artifactId>xoom-http</artifactId>
-      <version>1.8.5-SNAPSHOT</version>
+      <version>1.8.5</version>
     </dependency>
 
     <dependency>
