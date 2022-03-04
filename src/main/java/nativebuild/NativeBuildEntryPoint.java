@@ -23,6 +23,7 @@ public final class NativeBuildEntryPoint {
 
     final Definition definition = Definition.has(GraphQLProcessorActor.class, instantiator);
     final GraphQLProcessor processor = world.stage().actorFor(GraphQLProcessor.class, definition);
+    @SuppressWarnings("unused")
     final GraphQLResource graphQLResource = new GraphQLResource(world.stage(), processor);
     return 0;
   }
