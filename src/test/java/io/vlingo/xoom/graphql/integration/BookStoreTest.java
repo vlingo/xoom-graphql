@@ -163,6 +163,7 @@ public class BookStoreTest {
         world.terminate();
     }
 
+    @SuppressWarnings("unused")
     private Response performRequest(final GraphQLOperationRequest request, final GraphQLResponseProjection responseProjection) {
         final GraphQLRequest graphQLRequest = new GraphQLRequest(request, responseProjection);
         final String graphQLQuery = graphQLRequest.toHttpJsonBody();
