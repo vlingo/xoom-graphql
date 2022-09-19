@@ -46,25 +46,25 @@
     <dependency>
       <groupId>com.graphql-java</groupId>
       <artifactId>graphql-java</artifactId>
-      <version>16.2</version>
+      <version>19.2</version>
     </dependency>
 
     <dependency>
       <groupId>com.graphql-java-kickstart</groupId>
       <artifactId>graphql-java-tools</artifactId>
-      <version>11.0.1</version>
+      <version>13.0.0</version>
     </dependency>
 
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.3</version>
+      <version>1.4.0</version>
     </dependency>
 
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.7.2</version>
+      <version>5.9.0</version>
       <scope>test</scope>
     </dependency>
 
@@ -72,7 +72,7 @@
     <dependency>
       <groupId>io.github.kobylynskyi</groupId>
       <artifactId>graphql-java-codegen</artifactId>
-      <version>4.1.6</version>
+      <version>5.4.1</version>
       <scope>test</scope>
       <!-- exclude transitive dependencies declared by this artifact -->
       <exclusions>
@@ -109,7 +109,7 @@
         <groupId>io.github.kobylynskyi</groupId>
         <artifactId>graphql-codegen-maven-plugin</artifactId>
         <!-- check latest version: https://search.maven.org/artifact/io.github.kobylynskyi/graphql-codegen-maven-plugin -->
-        <version>4.1.6</version>
+        <version>5.5.0</version>
         <executions>
           <execution>
             <id>generate-graphql-client-sources</id>
